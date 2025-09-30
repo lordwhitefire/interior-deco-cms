@@ -14,8 +14,7 @@ export const siteSettings = defineType({
     defineField({
       name: 'description',
       title: 'Footer Description',
-      type: 'text',
-      rows: 3
+      type: 'text'
     }),
     defineField({
       name: 'social',
@@ -24,16 +23,62 @@ export const siteSettings = defineType({
       of: [{
         type: 'object',
         fields: [
-          { name: 'name', type: 'string', title: 'Platform' },
-          { name: 'url', type: 'url', title: 'URL' }
+          defineField({ name: 'name', type: 'string', title: 'Platform' }),
+          defineField({ name: 'url', type: 'url', title: 'URL' })
+        ]
+      }]
+    }),
+    defineField({
+      name: 'companyLinks',
+      title: 'Company Links',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'label', type: 'string', title: 'Label' }),
+          defineField({ name: 'url', type: 'string', title: 'Internal Path' })
+        ]
+      }]
+    }),
+    defineField({
+      name: 'servicesLinks',
+      title: 'Services Links',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'label', type: 'string', title: 'Label' }),
+          defineField({ name: 'url', type: 'string', title: 'Internal Path' })
+        ]
+      }]
+    }),
+    defineField({
+      name: 'contactLinks',
+      title: 'Contact Links',
+      type: 'array',
+      of: [{
+        type: 'object',
+        fields: [
+          defineField({ name: 'label', type: 'string', title: 'Label' }),
+          defineField({ name: 'url', type: 'string', title: 'URL/Email/Tel' }),
+          defineField({ 
+            name: 'icon', 
+            type: 'string',
+            options: {
+              list: [
+                { title: 'Mail', value: 'Mail' },
+                { title: 'Phone', value: 'Phone' },
+                { title: 'MapPin', value: 'MapPin' }
+              ]
+            }
+          })
         ]
       }]
     }),
     defineField({
       name: 'copyright',
       title: 'Copyright Line',
-      type: 'string',
-      initialValue: '© 2024 Interior Decorators Inc. All rights reserved.'
+      type: 'string'
     }),
     defineField({
       name: 'legal',
@@ -42,8 +87,8 @@ export const siteSettings = defineType({
       of: [{
         type: 'object',
         fields: [
-          { name: 'label', type: 'string', title: 'Label' },
-          { name: 'url', type: 'string', title: 'Internal Path' }
+          defineField({ name: 'label', type: 'string', title: 'Label' }),
+          defineField({ name: 'url', type: 'string', title: 'Internal Path' })
         ]
       }]
     })
