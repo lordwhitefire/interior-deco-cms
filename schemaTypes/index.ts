@@ -8,6 +8,9 @@ import { successStats} from './stat'
 import { article } from './article'
 import { join } from './join'
 import { siteSettings } from './siteSettings'
+import { aiAnswer } from './aiAnswer'
+import { howWeWork } from './howWeWork'
+import { servicePage } from './servicePage'
 
 export const schemaTypes = [
   hero,
@@ -19,5 +22,8 @@ export const schemaTypes = [
   successStats ,
   article,
   join,
-  siteSettings
+  siteSettings,
+  aiAnswer,
+  howWeWork,
+  servicePage
 ]
