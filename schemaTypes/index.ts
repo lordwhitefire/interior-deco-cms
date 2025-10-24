@@ -9,8 +9,10 @@ import { article } from './article'
 import { join } from './join'
 import { siteSettings } from './siteSettings'
 import { aiAnswer } from './aiAnswer'
-import { howWeWork } from './howWeWork'
-import { servicePage } from './servicePage'
+import { step, howWeWork } from './howWeWork' 
+import { serviceCard } from './serviceCard'
+import { teamMember } from './teamMember'   // <-- NEW
+import { aboutPage } from './aboutPage'     // <-- NEW
 
 export const schemaTypes = [
   hero,
@@ -19,11 +21,14 @@ export const schemaTypes = [
   testimonials,
   client,
   project,
-  successStats ,
+  successStats,
   article,
   join,
   siteSettings,
   aiAnswer,
+  step,
   howWeWork,
-  servicePage
+  serviceCard,
+  teamMember,   // <-- NEW
+  aboutPage,    // <-- NEW
 ]

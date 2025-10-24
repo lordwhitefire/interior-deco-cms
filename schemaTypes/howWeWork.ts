@@ -1,13 +1,19 @@
 // schemaTypes/howWeWork.ts
 import { defineField, defineType } from 'sanity'
 
-const step = defineType({
+export const step = defineType({
   name: 'step',
   title: 'Step',
   type: 'object',
   fields: [
     defineField({ name: 'number', title: 'Number', type: 'string', initialValue: '01' }),
-    defineField({ name: 'icon', title: 'Icon', type: 'image', options: { hotspot: true } }),
+    defineField({
+      name: 'icon',
+      title: 'Iconify Class',
+      type: 'string',
+      initialValue: 'icon-[icon-park-twotone--concept-sharing]',
+      validation: Rule => Rule.required()
+    }),
     defineField({ name: 'title', title: 'Title', type: 'string' }),
     defineField({ name: 'intro', title: 'Intro', type: 'text', rows: 3 }),
     defineField({ name: 'image', title: 'Image', type: 'image', options: { hotspot: true } })
@@ -28,5 +34,5 @@ export const howWeWork = defineType({
       of: [{ type: 'step' }],
       validation: Rule => Rule.required().min(4).max(4)
     })
-    ],
+  ]
 })
