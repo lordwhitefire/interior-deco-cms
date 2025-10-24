@@ -11,8 +11,17 @@ import { siteSettings } from './siteSettings'
 import { aiAnswer } from './aiAnswer'
 import { step, howWeWork } from './howWeWork' 
 import { serviceCard } from './serviceCard'
-import { teamMember } from './teamMember'   // <-- NEW
-import { aboutPage } from './aboutPage'     // <-- NEW
+import { teamMember } from './teamMember'
+import { aboutPage } from './aboutPage'
+import { blogPost } from './blogPost'
+import category from './category'
+import tag from './tag'
+import author from './author'
+import pullQuote from './pullQuote'
+import { heading } from './heading'
+import { paragraph } from './paragraph'
+import { customImage } from './image'
+import { button } from './button'
 
 export const schemaTypes = [
   hero,
@@ -29,6 +38,15 @@ export const schemaTypes = [
   step,
   howWeWork,
   serviceCard,
-  teamMember,   // <-- NEW
-  aboutPage,    // <-- NEW
+  teamMember,
+  aboutPage,
+  blogPost,
+  category,
+  tag,
+  author,
+  pullQuote,
+  heading,
+  paragraph,
+  customImage,
+  button
 ]
