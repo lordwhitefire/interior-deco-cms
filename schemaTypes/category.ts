@@ -6,8 +6,8 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({ name: 'title', type: 'string', title: 'Title', validation: Rule => Rule.required() }),
-    defineField({ name: 'slug', type: 'slug', title: 'Slug', options: { source: 'title' }, validation: Rule => Rule.required() }),
-    defineField({ name: 'color', type: 'string', title: 'Chip Colour', description: 'hex or tailwind class' })
+    defineField({ name: 'slug', type: 'slug', title: 'Slug', options: { source: 'title' }, validation: Rule => Rule.required() })
+   
   ],
   preview: { select: { title: 'title' } }
 })

@@ -22,6 +22,10 @@ import { heading } from './heading'
 import { paragraph } from './paragraph'
 import { customImage } from './image'
 import { button } from './button'
+import { blogCard } from './blogCard'
+import { latestNews } from './latestNews'
+import { blogPage } from './blogPage'
+import { blogDetail } from './blogDetail'
 
 export const schemaTypes = [
   hero,
@@ -48,5 +52,9 @@ export const schemaTypes = [
   heading,
   paragraph,
   customImage,
-  button
+  button,
+  blogCard,
+  latestNews,
+  blogPage,
+  blogDetail
 ]
