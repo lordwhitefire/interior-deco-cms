@@ -7,6 +7,12 @@ export const customImage = defineType({
   title: 'Image',
   fields: [
     defineField({
+      name: 'key',
+      type: 'string',
+      title: 'Key',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
       name: 'asset',
       type: 'image',
       title: 'Image',
@@ -21,11 +27,12 @@ export const customImage = defineType({
   ],
   preview: {
     select: {
+      key: 'key',
       asset: 'asset',
       alt: 'alt'
     },
-    prepare: ({asset, alt}) => ({
-      title: alt || 'Image',
+    prepare: ({key, asset, alt}) => ({
+      title: `${key}: ${alt || 'Image'}`,
       media: asset
     })
   }

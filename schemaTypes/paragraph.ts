@@ -7,6 +7,12 @@ export const paragraph = defineType({
   title: 'Paragraph',
   fields: [
     defineField({
+      name: 'key',
+      type: 'string',
+      title: 'Key',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
       name: 'text',
       type: 'text',
       title: 'Text',
@@ -15,9 +21,9 @@ export const paragraph = defineType({
     })
   ],
   preview: {
-    select: {text: 'text'},
-    prepare: ({text}) => ({
-      title: text?.slice(0, 80) + (text && text.length > 80 ? '…' : '')
+    select: {key: 'key', text: 'text'},
+    prepare: ({key, text}) => ({
+      title: `${key}: ${text?.slice(0, 80)}${text && text.length > 80 ? '…' : ''}`
     })
   }
 })

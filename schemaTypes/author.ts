@@ -5,8 +5,8 @@ export default defineType({
   title: 'Author',
   type: 'document',
   fields: [
-    defineField({ name: 'name', type: 'string', title: 'Name', validation: Rule => Rule.required() }),
-    defineField({ name: 'picture', type: 'image', title: 'Picture', options: { hotspot: true } })
+    defineField({ name: 'name', type: 'string', title: 'Name', validation: Rule => Rule.required() })
+    
   ],
   preview: { select: { title: 'name', media: 'picture' } }
 })
