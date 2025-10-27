@@ -16,7 +16,7 @@ import { aboutPage } from './aboutPage'
 import { blogPost } from './blogPost'
 import category from './category'
 import tag from './tag'
-import author from './author'
+import { author } from './author'
 import pullQuote from './pullQuote'
 import { heading } from './heading'
 import { paragraph } from './paragraph'
@@ -26,6 +26,7 @@ import { blogCard } from './blogCard'
 import { latestNews } from './latestNews'
 import { blogPage } from './blogPage'
 import { blogDetail } from './blogDetail'
+import { comment } from "./comment"
 
 export const schemaTypes = [
   hero,
@@ -56,5 +57,6 @@ export const schemaTypes = [
   blogCard,
   latestNews,
   blogPage,
-  blogDetail
+  blogDetail,
+  comment
 ]
