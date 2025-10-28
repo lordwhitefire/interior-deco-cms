@@ -1,88 +1,88 @@
-import { defineField, defineType } from "sanity";
+// sanity/schemaTypes/comment.ts
+// This is the FIRST file we create – it defines the shape of every comment/reply/like in Sanity.
 
-export const comment = defineType({
-  name: "comment",
-  title: "Comment",
-  type: "document",
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
+  name: 'comment',
+  title: 'Comment',
+  type: 'document',
   fields: [
     defineField({
-      name: "post",
-      type: "reference",
-      to: [{ type: "blogDetail" }],
+      name: 'message',
+      title: 'Message',
+      type: 'text',
+      validation: (Rule) => Rule.required().min(1).max(5000),
+    }),
+    defineField({
+      name: 'name',
+      title: 'Author name',
+      type: 'string',
+      validation: (Rule) => Rule.required().min(1).max(120),
+    }),
+    defineField({
+      name: 'email',
+      title: 'Author email',
+      type: 'string',
+      validation: (Rule) => Rule.required().email(),
+    }),
+    defineField({
+      name: 'post',
+      title: 'Blog post',
+      type: 'reference',
+      to: [{ type: 'post' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "parent",
-      type: "reference",
-      to: [{ type: "comment" }],
-      description: "Parent comment if this is a reply",
-    }),
-    defineField({ 
-      name: "name", 
-      type: "string", 
-      validation: (Rule) => Rule.required() 
-    }),
-    defineField({ 
-      name: "email", 
-      type: "string", 
-      validation: (Rule) => Rule.required() 
-    }),
-    defineField({ 
-      name: "website", 
-      type: "url" 
-    }),
-    defineField({ 
-      name: "message", 
-      type: "text", 
-      validation: (Rule) => Rule.required() 
-    }),
-    defineField({ 
-      name: "likes", 
-      type: "number", 
-      initialValue: 0 
-    }),
-    defineField({ 
-      name: "approved", 
-      type: "boolean", 
-      initialValue: true 
+      name: 'parent',
+      title: 'Parent comment (for replies)',
+      type: 'reference',
+      to: [{ type: 'comment' }],
+      // null = top-level comment
     }),
     defineField({
-      name: "createdAt",
-      type: "datetime",
-      title: "Created At",
-      initialValue: () => new Date().toISOString(),
+      name: 'approved',
+      title: 'Approved',
+      type: 'boolean',
+      initialValue: true,
+      validation: (Rule) => Rule.required(),
     }),
-  ],
-  orderings: [
-    {
-      title: "Newest",
-      name: "newest",
-      by: [{ field: "_createdAt", direction: "desc" }],
-    },
-    {
-      title: "Oldest",
-      name: "oldest",
-      by: [{ field: "_createdAt", direction: "asc" }],
-    },
-    {
-      title: "Most Likes",
-      name: "likesDesc",
-      by: [{ field: "likes", direction: "desc" }],
-    },
+    defineField({
+      name: 'likes',
+      title: 'Like count',
+      type: 'number',
+      initialValue: 0,
+      validation: (Rule) => Rule.required().min(0),
+    }),
+    defineField({
+      name: 'likedBy',
+      title: 'Who liked this',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'sessionId',
+              title: 'Session ID',
+              type: 'string',
+            }),
+          ],
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
-      name: "name",
-      message: "message",
-      post: "post.title",
-      approved: "approved",
-      likes: "likes",
+      name: 'name',
+      message: 'message',
+      post: 'post.title',
     },
-    prepare({ name, message, post, approved, likes }) {
+    prepare({ name, message, post }) {
       return {
-        title: `${name} on ${post}`,
-        subtitle: `${message.slice(0, 50)}${message.length > 50 ? "…" : ""} ${!approved ? "⏳" : ""} ${likes > 0 ? `❤️ ${likes}` : ""}`,
-      };
+        title: `${name} on “${post}”`,
+        subtitle: message?.slice(0, 100),
+      }
     },
   },
-});
+})
