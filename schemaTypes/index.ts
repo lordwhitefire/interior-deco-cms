@@ -27,6 +27,7 @@ import { latestNews } from './latestNews'
 import { blogPage } from './blogPage'
 import { blogDetail } from './blogDetail'
 import { comment } from "./comment"
+import { session } from './session'
 
 export const schemaTypes = [
   hero,
@@ -58,5 +59,6 @@ export const schemaTypes = [
   latestNews,
   blogPage,
   blogDetail,
-  comment
+  comment,
+  session
 ]
