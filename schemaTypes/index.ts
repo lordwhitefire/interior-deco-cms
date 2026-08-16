@@ -12,6 +12,8 @@ import { faqItem } from './faqItem'
 import { faqCategory } from './faqCategory'
 import { projectPage } from './projectPage'
 import { staff } from './staff'
+import { newsletterSubscriber } from './newsletterSubscriber'
+import { contactSubmission } from './contactSubmission'
 import { hero } from './hero'
 import { stylish } from './stylish'
 import { client } from './client'
@@ -32,6 +34,8 @@ export const schemaTypes = [
   faqCategory,
   projectPage,
   staff,
+  newsletterSubscriber,
+  contactSubmission,
   hero,
   stylish,
   client,
