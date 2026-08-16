@@ -1,87 +1,191 @@
-// aboutPage.ts
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const aboutPage = defineType({
   name: 'aboutPage',
   title: 'About Page',
   type: 'document',
-  options: {singleton: true},
   fields: [
     defineField({
-      name: 'heroHeadline',
-      title: 'Hero Headline',
+      name: 'slug',
+      title: 'Slug',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      initialValue: 'about'
     }),
     defineField({
-      name: 'heroSubText',
-      title: 'Hero Sub-text',
+      name: 'heroEyebrow',
+      title: 'Hero Eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'heroTitle',
+      title: 'Hero Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'heroDescription',
+      title: 'Hero Description',
       type: 'text',
-      rows: 2,
+      rows: 3
     }),
     defineField({
-      name: 'quoteText',
-      title: 'Quote Text',
-      type: 'text',
-      rows: 4,
-      validation: (Rule) => Rule.required(),
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      options: { hotspot: true }
     }),
     defineField({
-      name: 'quoteAuthor',
-      title: 'Quote Author',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      name: 'heroImageAlt',
+      title: 'Hero Image Alt',
+      type: 'string'
     }),
     defineField({
-      name: 'teamGallery',
-      title: 'Team Gallery',
+      name: 'heroCtaLabel',
+      title: 'Hero CTA Label',
+      type: 'string'
+    }),
+    defineField({
+      name: 'heroCtaHref',
+      title: 'Hero CTA Href',
+      type: 'string'
+    }),
+    defineField({
+      name: 'storyEyebrow',
+      title: 'Story Eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'storyTitle',
+      title: 'Story Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'storyParagraphs',
+      title: 'Story Paragraphs',
       type: 'array',
-      of: [{type: 'teamMember'}],
-      validation: (Rule) => Rule.min(1).max(12),
+      of: [{ type: 'string' }]
     }),
     defineField({
-      name: 'ctaHeadline',
-      title: 'CTA Headline',
-      type: 'string',
+      name: 'storyImage',
+      title: 'Story Image',
+      type: 'image',
+      options: { hotspot: true }
     }),
     defineField({
-      name: 'ctaSubText',
-      title: 'CTA Sub-text',
+      name: 'storyImageAlt',
+      title: 'Story Image Alt',
+      type: 'string'
+    }),
+    defineField({
+      name: 'valuesEyebrow',
+      title: 'Values Eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'values',
+      title: 'Values',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'icon', title: 'Icon', type: 'string' }),
+            defineField({ name: 'title', title: 'Title', type: 'string' }),
+            defineField({ name: 'description', title: 'Description', type: 'text', rows: 3 })
+          ]
+        }
+      ]
+    }),
+    defineField({
+      name: 'approachEyebrow',
+      title: 'Approach Eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'approachTitle',
+      title: 'Approach Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'approachDescription',
+      title: 'Approach Description',
       type: 'text',
-      rows: 2,
+      rows: 3
     }),
     defineField({
-      name: 'ctaButtonText',
-      title: 'CTA Button Text',
-      type: 'string',
+      name: 'approachSteps',
+      title: 'Approach Steps',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'title', title: 'Title', type: 'string' }),
+            defineField({ name: 'description', title: 'Description', type: 'text', rows: 3 })
+          ]
+        }
+      ]
     }),
     defineField({
-      name: 'seoTitle',
-      title: 'SEO Title',
-      type: 'string',
-      validation: (Rule) => Rule.required().max(60),
+      name: 'approachImage',
+      title: 'Approach Image',
+      type: 'image',
+      options: { hotspot: true }
     }),
     defineField({
-      name: 'seoDescription',
-      title: 'SEO Description',
+      name: 'approachImageAlt',
+      title: 'Approach Image Alt',
+      type: 'string'
+    }),
+    defineField({
+      name: 'closingEyebrow',
+      title: 'Closing Eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'closingTitle',
+      title: 'Closing Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'closingDescription',
+      title: 'Closing Description',
       type: 'text',
-      rows: 2,
-      validation: (Rule) => Rule.required().max(160),
+      rows: 3
     }),
-        //  ↓  ADD THIS BLOCK  ↓
     defineField({
-      name: 'mailchimpTag',
-      title: 'Mailchimp Tag',
-      type: 'string',
-      description: 'Sent to Mailchimp to segment this lead.',
-      initialValue: 'project-lead',
-      validation: (Rule) => Rule.required(),
+      name: 'closingImage',
+      title: 'Closing Image',
+      type: 'image',
+      options: { hotspot: true }
     }),
+    defineField({
+      name: 'closingImageAlt',
+      title: 'Closing Image Alt',
+      type: 'string'
+    }),
+    defineField({
+      name: 'closingCtaLabel',
+      title: 'Closing CTA Label',
+      type: 'string'
+    }),
+    defineField({
+      name: 'closingCtaHref',
+      title: 'Closing CTA Href',
+      type: 'string'
+    }),
+    defineField({
+      name: 'metaTitle',
+      title: 'Meta Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'text',
+      rows: 3
+    })
   ],
   preview: {
-    select: {
-      title: 'heroHeadline',
-      subtitle: 'seoTitle',
-    },
-  },
+    select: { title: 'heroTitle', subtitle: 'slug' }
+  }
 })

@@ -1,64 +1,39 @@
-import { hero } from './hero'
-import { service } from './service'
-import {stylish} from './stylish'
-import { testimonials } from './testimonial'
-import { client } from './client'
-import { project } from './project'
-import { successStats} from './stat'
-import { article } from './article'
-import { join } from './join'
-import { siteSettings } from './siteSettings'
-import { aiAnswer } from './aiAnswer'
-import { step, howWeWork } from './howWeWork' 
-import { serviceCard } from './serviceCard'
-import { teamMember } from './teamMember'
+import { servicePage } from './servicePage'
+import { blogArticle } from './blogArticle'
+import { blogCategory } from './blogCategory'
+import { homePage } from './homePage'
 import { aboutPage } from './aboutPage'
-import { blogPost } from './blogPost'
-import category from './category'
-import tag from './tag'
-import { author } from './author'
-import pullQuote from './pullQuote'
-import { heading } from './heading'
-import { paragraph } from './paragraph'
-import { customImage } from './image'
-import { button } from './button'
-import { blogCard } from './blogCard'
-import { latestNews } from './latestNews'
-import { blogPage } from './blogPage'
-import { blogDetail } from './blogDetail'
-import { comment } from "./comment"
-import { session } from './session'
+import { contactPage } from './contactPage'
+import { teamPage } from './teamPage'
+import { testimonialsPage } from './testimonialsPage'
+import { siteConfig } from './siteConfig'
+import { faqPage } from './faqPage'
+import { faqItem } from './faqItem'
+import { faqCategory } from './faqCategory'
+import { projectPage } from './projectPage'
+import { staff } from './staff'
+import { hero } from './hero'
+import { stylish } from './stylish'
+import { client } from './client'
+import { testimonial } from './testimonial'
 
 export const schemaTypes = [
-  hero,
-  service,
-  stylish,
-  testimonials,
-  client,
-  project,
-  successStats,
-  article,
-  join,
-  siteSettings,
-  aiAnswer,
-  step,
-  howWeWork,
-  serviceCard,
-  teamMember,
+  servicePage,
+  blogArticle,
+  blogCategory,
+  homePage,
   aboutPage,
-  blogPost,
-  category,
-  tag,
-  author,
-  pullQuote,
-  heading,
-  paragraph,
-  customImage,
-  button,
-  blogCard,
-  latestNews,
-  blogPage,
-  blogDetail,
-  comment,
-  session
+  contactPage,
+  teamPage,
+  testimonialsPage,
+  siteConfig,
+  faqPage,
+  faqItem,
+  faqCategory,
+  projectPage,
+  staff,
+  hero,
+  stylish,
+  client,
+  testimonial
 ]

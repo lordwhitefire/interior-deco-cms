@@ -1,38 +1,47 @@
 import { defineField, defineType } from 'sanity'
 
-export const testimonials = defineType({
-  name: 'testimonials',
-  title: 'Testimonials Section',
+export const testimonial = defineType({
+  name: 'testimonial',
+  title: 'Testimonial',
   type: 'document',
   fields: [
     defineField({
-      name: 'testimonials',
-      title: 'Testimonials',
-      type: 'array',
-      of: [{
-        type: 'object',
-        fields: [
-          defineField({ name: 'name', type: 'string', validation: Rule => Rule.required() }),
-          defineField({ name: 'location', type: 'string', validation: Rule => Rule.required() }),
-          defineField({ name: 'rating', type: 'number', validation: Rule => Rule.required().min(1).max(5) }),
-          defineField({ name: 'text', type: 'text', rows: 4, validation: Rule => Rule.required() }),
-          defineField({ name: 'project', type: 'string', validation: Rule => Rule.required() }),
-          defineField({ name: 'verified', type: 'boolean', initialValue: true }),
-          defineField({ 
-            name: 'image', 
-            type: 'image', 
-            options: { hotspot: true },
-            validation: Rule => Rule.required() 
-          }),
-        ]
-      }]
+      name: 'clientName',
+      title: 'Client Name',
+      type: 'string',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'clientLocation',
+      title: 'Client Location',
+      type: 'string'
+    }),
+    defineField({
+      name: 'clientImage',
+      title: 'Client Image',
+      type: 'image',
+      options: { hotspot: true }
+    }),
+    defineField({
+      name: 'review',
+      title: 'Review',
+      type: 'text',
+      rows: 5,
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'rating',
+      title: 'Rating',
+      type: 'number',
+      validation: Rule => Rule.min(1).max(5)
+    }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'string'
     })
   ],
   preview: {
-    select: {
-      title: 'testimonials.0.name',
-      subtitle: 'testimonials.0.text',
-      media: 'testimonials.0.image'
-    }
+    select: { title: 'clientName', subtitle: 'clientLocation', media: 'clientImage' }
   }
 })
