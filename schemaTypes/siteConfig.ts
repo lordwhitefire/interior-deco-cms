@@ -123,6 +123,17 @@ export const siteConfig = defineType({
       type: 'string'
     }),
     defineField({
+      name: 'servicesHeroImage',
+      title: 'Services Hero Image',
+      type: 'image',
+      options: { hotspot: true }
+    }),
+    defineField({
+      name: 'servicesHeroImageAlt',
+      title: 'Services Hero Image Alt',
+      type: 'string'
+    }),
+    defineField({
       name: 'servicesCtaImage',
       title: 'Services CTA Image',
       type: 'image',
